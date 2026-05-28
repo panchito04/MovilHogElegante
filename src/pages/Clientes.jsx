@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { API_URL } from '../utils/apiConfig'
 import Sidebar from '../components/Sidebar'
 
 function Clientes({ user }) {
@@ -31,7 +32,7 @@ function Clientes({ user }) {
   const fetchClientes = async () => {
   try {
     setIsLoading(true)
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/clientes`)
+    const response = await axios.get(`${API_URL}/api/clientes`)
     setClientes(response.data)
   } catch (error) {
     console.error('Error al obtener clientes:', error)
@@ -44,7 +45,7 @@ function Clientes({ user }) {
 const handleCreateCliente = async (e) => {
   e.preventDefault()
   try {
-    await axios.post(`${import.meta.env.VITE_API_URL}/api/clientes`, newCliente)
+    await axios.post(`${API_URL}/api/clientes`, newCliente)
     alert('Cliente creado exitosamente')
     setShowModal(false)
     setNewCliente({ nombre: '', tiktok_usuario: '', telefono: '', direccion: '' })

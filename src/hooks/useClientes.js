@@ -3,6 +3,7 @@
 // hooks/useClientes.js
 // ========================================
 import { useState } from 'react'
+import { API_URL } from '../utils/apiConfig'
 
 export const useClientes = () => {
   const [clientes, setClientes] = useState([])
@@ -11,7 +12,7 @@ export const useClientes = () => {
   const fetchClientes = async () => {
     try {
       setIsLoading(true)
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/clientes`)
+      const response = await fetch(`${API_URL}/api/clientes`)
       
       if (!response.ok) throw new Error('Error al obtener clientes')
       

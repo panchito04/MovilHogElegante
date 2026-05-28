@@ -1,5 +1,5 @@
 // src/App.jsx
-import { BrowserRouter, Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom'
+import { HashRouter, Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
 import { authService } from './services/authService'
 import Login from './components/Login'
@@ -212,14 +212,14 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AppContent 
         isAuthenticated={isAuthenticated}
         setIsAuthenticated={setIsAuthenticated}
         user={user}
         setUser={setUser}
       />
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

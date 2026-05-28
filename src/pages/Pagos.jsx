@@ -4,6 +4,7 @@ import Sidebar from '../components/Sidebar'
 import PageHeader from '../components/common/PageHeader'
 import Modal from '../components/common/Modal'
 import FormField from '../components/common/FormField'
+import { API_URL } from '../utils/apiConfig'
 
 function Pagos({ user }) {
   const location = useLocation()
@@ -34,8 +35,8 @@ function Pagos({ user }) {
     try {
       setIsLoading(true)
       const [pagosRes, pedidosRes] = await Promise.all([
-        fetch(`${import.meta.env.VITE_API_URL}/api/pagos`),
-        fetch(`${import.meta.env.VITE_API_URL}/api/pedidos`)
+        fetch(`${API_URL}/api/pagos`),
+        fetch(`${API_URL}/api/pedidos`)
       ])
       
       const pagosData = await pagosRes.json()
@@ -61,7 +62,7 @@ function Pagos({ user }) {
   const handleCreatePago = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/pagos`, {
+      const response = await fetch(`${API_URL}/api/pagos`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

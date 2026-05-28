@@ -1,7 +1,6 @@
 // src/hooks/useProductos.js
 import { useState } from 'react'
-
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000'
+import { API_URL } from '../utils/apiConfig'
 
 export const useProductos = () => {
   const [productos, setProductos] = useState([])

@@ -1,6 +1,7 @@
 // src/pages/Home.jsx
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { API_URL } from '../utils/apiConfig'
 import Sidebar from '../components/Sidebar'
 import PageHeader from '../components/common/PageHeader'
 import LoadingState from '../components/home/LoadingState'
@@ -32,7 +33,7 @@ function Home({ user }) {
     try {
       setIsLoading(true)
       setError(null)
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/home`)
+      const response = await axios.get(`${API_URL}/api/home`)
       setStats(response.data)
     } catch (error) {
       console.error('Error al cargar estadísticas:', error)

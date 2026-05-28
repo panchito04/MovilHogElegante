@@ -1,7 +1,6 @@
 // src/services/authService.js
 import axios from 'axios';
-
-const API_URL = import.meta.env.VITE_API_URL || 'https://backhogele.onrender.com';
+import { API_URL } from '../utils/apiConfig';
 
 const api = axios.create({
   baseURL: API_URL,
