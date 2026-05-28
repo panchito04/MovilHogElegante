@@ -1,5 +1,5 @@
 // src/utils/apiConfig.js
-const baseApiUrl = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+const baseApiUrl = import.meta.env.VITE_API_URL || 'https://backhogele.onrender.com';
 const isCapacitor = !!(window.Capacitor || (window.location.hostname === 'localhost' && window.location.port === ''));
 let dynamicApiUrl = baseApiUrl;
 
